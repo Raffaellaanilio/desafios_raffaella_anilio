@@ -1,29 +1,58 @@
-let usuario = prompt('¿Cuál es tu nombre?');
-let edad = Number(prompt('¿Qué edad tienes?'));
-let tipo_alojamiento_1 = 'Habitación compartida'; // 20-30 usd por noche
-let tipo_alojamiento_2 = 'Habitación privada'; // 30-40 usd por noche
-let tipo_alojamiento_3 = 'Departamento'; // 40-200 usd por noche
-let tipo_alojamiento_4 = 'Hotel 5 estrellas'; //  mas de 200usd por noche
+let numOperaciones = prompt('¿Cuantas operaciones te gustaría realizar?');
+let suma = 0;
+let resta = 0;
+let multiplicacion = 0;
+let division = 0;
+let continuar = 0;
 
 
+for(let i = 1 ; i <= numOperaciones ; i++) {
 
-if (edad >= 18){
-    alert('Bienvenid@' + ' ' + usuario + ', como eres mayor de edad puedes hacer una reserva en nuestro sitio web');
-    let presupuesto = Number(prompt('¿Cuánto dinero te gustaría gastar en alojamiento por noche?'));
+let num1 = Number(prompt("Ingrese el primer numero de la operación"));
+let num2 = Number(prompt("Ingrese el segundo numero de la operación"));
+let operacion = prompt("Escriba la operación que le gustaría realizar (+, - , *, /)");
 
-    if (presupuesto < 20) {
-        alert('Lo sentimos, por el momento no tenemos un alojamiento que cumpla con estos parámetros');
-    }else if (presupuesto <= 30){
-        alert('Te recomendamos reservar en un alojamiento de tipo' + ' ' + tipo_alojamiento_1);
-    }else if (presupuesto <= 60){
-        alert('Te recomendamos reservar en un alojamiento de tipo' + ' ' + tipo_alojamiento_2);
-    }else if (presupuesto <= 200){
-        alert('Te recomendamos reservar en un alojamiento de tipo' + ' ' + tipo_alojamiento_3);
-    }else if (presupuesto > 200){
-        alert('Te recomendamos reservar en un alojamiento de tipo' + ' ' + tipo_alojamiento_4);
-    }
+if (operacion === '+'){
+    let suma = num1 + num2;
+    alert(`El resultado de la suma es:  ${suma} `)
+}else if (operacion === '-'){
+    let resta = num1 - num2;
+    alert(`El resultado de la suma es:  ${resta} `)
+}else if (operacion === '/'){
+    let division = num1 / num2;
+    alert(`El resultado de la suma es:  ${division} `)
+}else if (operacion === '*'){
+    let multiplicacion = num1 * num2;
+    alert(`El resultado de la suma es:  ${multiplicacion}`)
+}else if (operacion != '+' || operacion != '-' || operacion != '/' || operacion != '*'){
+    continuar = Number(prompt(`Esa operación no es válida, ¿Te gustaría ingresar otra operación (Sí=1/No=2)?`))
+        if (continuar === 1){
+    
+                let num1 = Number(prompt("Ingrese el primer numero de la operación"));
+                let num2 = Number(prompt("Ingrese el segundo numero de la operación"));
+                let operacion = prompt("Escriba la operación que le gustaría realizar (+, - , *, /)");
+
+                if (operacion === '+'){
+                    let suma = num1 + num2;
+                    alert(`El resultado de la suma es:  ${suma} `)
+                }else if (operacion === '-'){
+                    let resta = num1 - num2;
+                    alert(`El resultado de la suma es:  ${resta} `)
+                }else if (operacion === '/'){
+                    let division = num1 / num2;
+                    alert(`El resultado de la suma es:  ${division} `)
+                }else if (operacion === '*'){
+                    let multiplicacion = num1 * num2;
+                    alert(`El resultado de la suma es:  ${multiplicacion}`)
+                        }
+                else{
+                    alert('Gracias por haber participado')
+                    break
+                }
 }else{
-    alert('Lo sentimos' + ' ' + usuario + ', necesitas ser mayor de edad para poder efectuar una reserva');
-}
+   console.log('Fin')
+    break
 
-//let tiempo = Number(prompt('¿Cuántas noches quieres reservar?'));
+}
+}
+}

@@ -1,58 +1,77 @@
-let numOperaciones = prompt('¿Cuantas operaciones te gustaría realizar?');
-let suma = 0;
-let resta = 0;
-let multiplicacion = 0;
-let division = 0;
-let continuar = 0;
+let precioPan = 5;
+let precioLeche = 10;
+let precioHuevos = 15;
+let cantidad = 0;
+let totalPan = 0;
+let totalLeche = 0;
+let totalHuevos = 0;
+let presupuesto = 0;
+let compra = 0;
+let saldo = 0;
+
+function compraPan(cantidad, precioPan) {
+  alert(`El costo de su compra es de ${cantidad * precioPan}`);
+  return cantidad * precioPan;
+}
+
+function compraLeche(cantidad, precioLeche) {
+  alert(`El costo de su compra es de ${cantidad * precioLeche}`);
+  return cantidad * precioLeche;
+}
+
+function compraHuevos(cantidad, precioHuevos) {
+  alert(`El costo de su compra es de ${cantidad * precioHuevos}`);
+  return cantidad * precioHuevos;
+}
+
+function compraTotal(totalPan, totalLeche, totalHuevos, presupuesto) {
+  alert(`Muchas gracias, el total de su compra es ${totalPan + totalLeche + totalHuevos}, su vuelto es de ${presupuesto - (totalPan + totalLeche + totalHuevos)}`)
+  return totalPan + totalLeche + totalHuevos; 
+}
+
+function pedirPresupuesto(){
+  presupuesto = Number(prompt('¿Cual es su presupuesto?'));
+  return presupuesto
+}
 
 
-for(let i = 1 ; i <= numOperaciones ; i++) {
+pedirPresupuesto()
 
-let num1 = Number(prompt("Ingrese el primer numero de la operación"));
-let num2 = Number(prompt("Ingrese el segundo numero de la operación"));
-let operacion = prompt("Escriba la operación que le gustaría realizar (+, - , *, /)");
+do {
+  compra = Number(
+    prompt(`Escriba el número del producto que va a querer comprar:
+1 - PAN
+2- LECHE
+3 - HUEVOS
+0 - FINALIZAR COMPRA`)
+  );
 
-if (operacion === '+'){
-    let suma = num1 + num2;
-    alert(`El resultado de la suma es:  ${suma} `)
-}else if (operacion === '-'){
-    let resta = num1 - num2;
-    alert(`El resultado de la suma es:  ${resta} `)
-}else if (operacion === '/'){
-    let division = num1 / num2;
-    alert(`El resultado de la suma es:  ${division} `)
-}else if (operacion === '*'){
-    let multiplicacion = num1 * num2;
-    alert(`El resultado de la suma es:  ${multiplicacion}`)
-}else if (operacion != '+' || operacion != '-' || operacion != '/' || operacion != '*'){
-    continuar = Number(prompt(`Esa operación no es válida, ¿Te gustaría ingresar otra operación (Sí=1/No=2)?`))
-        if (continuar === 1){
+  switch (compra) {
+    case 1:
+      cantidad = Number(prompt(`¿Cuántas unidades de pan va a querer?`));
+      totalPan = compraPan(cantidad, precioPan)
+      alert(`${cantidad} unidades de pan tienen un total de ${totalPan}`);
+      saldo = alert(`Tiene un saldo de ${presupuesto - totalPan}`)
+      break;
+    case 2:
+      cantidad = Number(prompt(`¿Cuántas unidades de leche va a querer?`));
+      totalLeche = compraLeche(cantidad, precioLeche)
+      alert(`${cantidad} unidades de pan tienen un total de ${totalLeche}`);
+      saldo = alert(`Tiene un saldo de ${presupuesto - totalLeche}`)
+      break;
+    case 3:
+      cantidad = Number(prompt(`¿Cuántas unidades de huevo va a querer?`));
+      totalHuevos = compraHuevos(cantidad, precioHuevos)
+      alert(`${cantidad} unidades de pan tienen un total de ${totalHuevos}`);
+      saldo = alert(`Tiene un saldo de ${presupuesto - totalHuevos}`)
+      break;
+    default:
+      break;
+  }
+
+}while (compra != 0)
+    alert(compraTotal(totalPan, totalLeche, totalHuevos, presupuesto))
+
+
+
     
-                let num1 = Number(prompt("Ingrese el primer numero de la operación"));
-                let num2 = Number(prompt("Ingrese el segundo numero de la operación"));
-                let operacion = prompt("Escriba la operación que le gustaría realizar (+, - , *, /)");
-
-                if (operacion === '+'){
-                    let suma = num1 + num2;
-                    alert(`El resultado de la suma es:  ${suma} `)
-                }else if (operacion === '-'){
-                    let resta = num1 - num2;
-                    alert(`El resultado de la suma es:  ${resta} `)
-                }else if (operacion === '/'){
-                    let division = num1 / num2;
-                    alert(`El resultado de la suma es:  ${division} `)
-                }else if (operacion === '*'){
-                    let multiplicacion = num1 * num2;
-                    alert(`El resultado de la suma es:  ${multiplicacion}`)
-                        }
-                else{
-                    alert('Gracias por haber participado')
-                    break
-                }
-}else{
-   console.log('Fin')
-    break
-
-}
-}
-}
